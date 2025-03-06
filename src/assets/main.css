@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+router-link-active{
+    color:white
+}
+
+
+@layer base{
+    @font-face {
+        font-family: myFont;
+        src: url(../../public/fonts/No-Virus.ttf) format('truetype');
+    }
+    body{
+        font-family: myFont;
+    }
+  }

@@ -1,0 +1,392 @@
+<template>
+    <!-- <link rel="stylesheet" type="text/css" href="./src/css/weather.css">  -->
+    <div id="weatherFrame">
+        <p>How's the weather today?</p>
+        <p class="text-sm">{{ weatherName }}</p>
+        <div class="icon-container" style="margin-top: -200px"> 
+            <div class="icon sunny cursor-pointer" @click="setWeather(3, 'Sunny'),handleSunnyEvent()">
+                <div class="sun">
+                <div class="rays"></div>
+                </div>
+            </div>
+            
+            <div class="icon rainy cursor-pointer" @click="setWeather(2, 'Rainy'),handleRainyEvent()">
+                <div class="cloud"></div>
+                <div class="rain"></div>
+            </div>
+            
+            <div class="icon cloudy cursor-pointer" @click="setWeather(1, 'Cloudy'),handleCloudyEvent()">
+                <div class="cloud"></div>
+                <div class="cloud"></div>
+            </div>
+        </div>
+        <button id="finishBtn" class="button-27" role="button" @click="handleFinishBtn">Finish</button>
+    </div>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            weather: 3,
+            weatherName: ""
+        }
+    },
+    methods: {
+        setWeather(value,weatherName) {
+            this.weather = value
+            this.weatherName= weatherName
+        },
+        getWeather() {
+            return this.weather
+        },
+        handleFinishBtn() {
+            this.$emit("handleFinishBtn")
+        },
+        handleSunnyEvent() {
+            this.resetIcons()
+            document.getElementById('weatherFrame').style.backgroundColor = '#8ac6f7'
+            document.querySelector('.rainy').style.opacity = '0.4'
+            document.querySelector('.cloudy').style.opacity = '0.5'
+            document.getElementById('weatherFrame').style.color = '#8ac6f7'
+        },
+        handleRainyEvent() {
+            this.resetIcons();
+            document.getElementById('weatherFrame').style.backgroundColor = '#2d3a6b';
+            document.querySelector('.sunny').style.opacity = '0.1';
+            document.querySelector('.cloudy').style.opacity = '0.3';
+            document.getElementById('weatherFrame').style.color = '#2d3a6b'; 
+        },
+        handleCloudyEvent() {
+            this.resetIcons();
+            document.getElementById('weatherFrame').style.backgroundColor = '#a8b2cd';
+            document.querySelector('.sunny').style.opacity = '0.1';
+            document.querySelector('.rainy').style.opacity = '0.2';
+            document.getElementById('weatherFrame').style.color = 'lightgray'; 
+        },
+        resetIcons() {
+            document.querySelector('.sunny').style.opacity = '1';
+            document.querySelector('.rainy').style.opacity = '1';
+            document.querySelector('.cloudy').style.opacity = '1';
+        }
+    },
+    mounted() {}
+}
+</script>
+
+<style scoped>
+html { box-sizing: border-box; }
+html *,
+html *:before,
+html *:after { box-sizing: inherit; }
+
+#weatherFrame {
+color: #8a93f4;
+/* color: #2d3a6b; */
+/* padding: 2em; */
+margin: 0 auto;
+color: #8a93f4;
+font-family: "Arial", sans-serif;
+text-align: center;
+background-color: currentColor;
+transition: color 0.5s ease;
+}
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px; /* Full viewport height */
+}
+
+
+h1 {
+margin-bottom: 0.5em;
+color: #fff;
+font-weight: 100;
+font-size: 2.5em;
+text-transform: uppercase;
+}
+
+/* Icons */
+
+.icon {
+font-size: 0.8em; /* icon size */
+}
+
+.sunny {
+position: absolute;
+top: 50%;
+left: 30%;
+}
+
+.rainy {
+position: absolute;
+top: 50%;
+left: 50%;
+}
+
+.cloudy {
+position: absolute;
+top: 50%;
+left: 70%;
+}
+
+.sun {
+width: 2.5em;
+height: 2.5em;
+margin: -1.25em;
+/* background: currentColor; */
+border-radius: 50%;
+box-shadow: 0 0 0 0.375em orange;
+-webkit-animation: spin 12s infinite linear;
+        animation: spin 12s infinite linear;
+}
+
+.rays {
+position: absolute;
+top: -2em;
+left: 50%;
+display: block;
+width: 0.375em;
+height: 1.125em;
+margin-left: -0.1875em;
+background: yellow;
+border-radius: 0.25em;
+box-shadow: 0 5.375em yellow;
+}
+
+.rays:before, .rays:after {
+content: '';
+position: absolute;
+top: 0em;
+left: 0em;
+display: block;
+width: 0.375em;
+height: 1.125em;
+-webkit-transform: rotate(60deg);
+        transform: rotate(60deg);
+-webkit-transform-origin: 50% 3.25em;
+        transform-origin: 50% 3.25em;
+background: yellow;
+border-radius: 0.25em;
+box-shadow: 0 5.375em yellow;
+}
+.rays:before {
+-webkit-transform: rotate(120deg);
+        transform: rotate(120deg);
+}
+
+.rain{
+position: absolute;
+z-index: 2;
+top: 50%;
+left: 20%;
+width: 3.75em;
+height: 3.75em;
+margin: 0.375em 0 0 -2em;
+/* background: currentColor; */
+}
+
+.rain:after {
+content: '';
+position: absolute;
+z-index: 2;
+top: 50%;
+left: 50%;
+width: 1.125em;
+height: 1.125em;
+margin: -1em 0 0 -0.25em;
+background: #0cf;
+border-radius: 100% 0 60% 50% / 60% 0 100% 50%;
+box-shadow:
+    0.625em 0.875em 0 -0.125em rgba(255,255,255,0.2),
+    -0.875em 1.125em 0 -0.125em rgba(255,255,255,0.2),
+    -1.375em -0.125em 0 rgba(255,255,255,0.2);
+-webkit-transform: rotate(-28deg);
+        transform: rotate(-28deg);
+-webkit-animation: rain 3s linear infinite;
+        animation: rain 3s linear infinite;
+}
+
+.cloud {
+position: absolute;
+z-index: 1;
+width: 3.6875em;
+height: 3.6875em;
+margin: -1.84375em;
+background: currentColor;
+border-radius: 50%;
+box-shadow:
+    -2.1875em 0.6875em 0 -0.6875em,
+    2.0625em 0.9375em 0 -0.9375em ,
+    0 0 0 0.375em lightgray,
+    -2.1875em 0.6875em 0 -0.3125em lightgray,
+    2.0625em 0.9375em 0 -0.5625em lightgray;
+}
+.cloud:after {
+content: '';
+position: absolute;
+bottom: 0;
+left: -0.5em;
+display: block;
+width: 4.5625em;
+height: 1em;
+background: currentColor;
+box-shadow: 0 0.4375em 0 -0.0625em lightgray;
+}
+.cloud:nth-child(2) {
+z-index: 0;
+background: #fff;
+box-shadow:
+    -2.1875em 0.6875em 0 -0.6875em #fff,
+    2.0625em 0.9375em 0 -0.9375em #fff,
+    0 0 0 0.375em #fff,
+    -2.1875em 0.6875em 0 -0.3125em #fff,
+    2.0625em 0.9375em 0 -0.5625em #fff;
+opacity: 0.3;
+-webkit-transform: scale(0.5) translate(6em, -3em);
+        transform: scale(0.5) translate(6em, -3em);
+-webkit-animation: cloud 4s linear infinite;
+        animation: cloud 4s linear infinite;
+}
+.cloud:nth-child(2):after { background: #fff; }
+
+/* Keyframe animations */
+
+@-webkit-keyframes spin {
+    0%  {-webkit-transform: rotate(0deg);}
+    100% {-webkit-transform: rotate(360deg);}   
+}
+
+@keyframes spin {
+100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
+}
+
+@-webkit-keyframes rain {
+0% {
+    background: #0cf;
+    box-shadow:
+    0.625em 0.875em 0 -0.125em rgba(255,255,255,0.2),
+    -0.875em 1.125em 0 -0.125em rgba(255,255,255,0.2),
+    -1.375em -0.125em 0 #0cf;
+}
+25% {
+    box-shadow:
+    0.625em 0.875em 0 -0.125em rgba(255,255,255,0.2),
+    -0.875em 1.125em 0 -0.125em #0cf,
+    -1.375em -0.125em 0 rgba(255,255,255,0.2);
+}
+50% {
+    background: rgba(255,255,255,0.3);
+    box-shadow:
+    0.625em 0.875em 0 -0.125em #0cf,
+    -0.875em 1.125em 0 -0.125em rgba(255,255,255,0.2),
+    -1.375em -0.125em 0 rgba(255,255,255,0.2);
+}
+100% {
+    box-shadow:
+    0.625em 0.875em 0 -0.125em rgba(255,255,255,0.2),
+    -0.875em 1.125em 0 -0.125em rgba(255,255,255,0.2),
+    -1.375em -0.125em 0 #0cf;
+}
+}
+
+@keyframes rain {
+0% {
+    background: #0cf;
+    box-shadow:
+    0.625em 0.875em 0 -0.125em rgba(255,255,255,0.2),
+    -0.875em 1.125em 0 -0.125em rgba(255,255,255,0.2),
+    -1.375em -0.125em 0 #0cf;
+}
+25% {
+    box-shadow:
+    0.625em 0.875em 0 -0.125em rgba(255,255,255,0.2),
+    -0.875em 1.125em 0 -0.125em #0cf,
+    -1.375em -0.125em 0 rgba(255,255,255,0.2);
+}
+50% {
+    background: rgba(255,255,255,0.3);
+    box-shadow:
+    0.625em 0.875em 0 -0.125em #0cf,
+    -0.875em 1.125em 0 -0.125em rgba(255,255,255,0.2),
+    -1.375em -0.125em 0 rgba(255,255,255,0.2);
+}
+100% {
+    box-shadow:
+    0.625em 0.875em 0 -0.125em rgba(255,255,255,0.2),
+    -0.875em 1.125em 0 -0.125em rgba(255,255,255,0.2),
+    -1.375em -0.125em 0 #0cf;
+    }
+}
+
+@-webkit-keyframes cloud {
+0% { opacity: 0; }
+50% { opacity: 0.3; }
+100% {
+    opacity: 0;
+    -webkit-transform: scale(0.5) translate(-200%, -3em);
+            transform: scale(0.5) translate(-200%, -3em);
+    }
+}
+
+@keyframes cloud {
+0% { opacity: 0; }
+50% { opacity: 0.3; }
+100% {
+    opacity: 0;
+    -webkit-transform: scale(0.5) translate(-200%, -3em);
+            transform: scale(0.5) translate(-200%, -3em);
+    }
+}
+
+p {
+    font-family: "Arial", sans-serif;
+    color: rgb(255, 255, 234);
+    font-size: 35px;
+}
+
+.button-27 {
+  appearance: none;
+  background-color: #000000;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  /* margin-left: 90%; */
+  min-height: 20px;
+  min-width: 0;
+  outline: none;
+  padding: 6px 2px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 10%;
+  will-change: transform;
+}
+
+.button-27:disabled {
+  pointer-events: none;
+}
+
+.button-27:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.button-27:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+</style>

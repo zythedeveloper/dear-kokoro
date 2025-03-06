@@ -1,0 +1,43 @@
+
+.p1 rect {
+  /* fill: #57C7B6; */
+  fill: #e59090; 
+  height: 5vh;
+  width: 1.4%;
+  border-radius: 25px; 
+}
+
+.p1 g polygon {
+  opacity: 1;
+}
+
+.p1 circle {
+  /* fill: #256058;
+  stroke: #57C7B6; */
+  fill: #f1bfc8;
+  stroke: #d08895;
+  stroke-width: 4;
+  filter: url(#dropshadow);
+}
+
+.p1 text {
+  font-size: 15px;
+  /* fill: #57C7B6; */
+  fill: #ec8f8f;
+  font-family: sans-serif;
+  font-weight: 300;
+  -webkit-transition: all .1s ease-in-out;
+}
+
+.p1 text.active {
+  font-size: 15px;
+  -webkit-transition: all .3s ease-in-out;
+}
+
+p { 
+  font-family: "Sofia", sans-serif;
+  color: #e59090;
+  font-size: 40px;
+  top: 10px;
+}
+
