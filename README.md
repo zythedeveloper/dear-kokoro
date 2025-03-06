@@ -1,53 +1,37 @@
-# cm2020-101
+# Dear Kokoro
 
-!!Please keep API keys a secret!!
-<br/>
-Make sure you have Node.js v17.5 and above to run this project
-<br/>
-Alternatively visit our hosted website https://cm2020-101.web.app/
+A simple yet heartfelt journaling web application designed to help users reflect on their thoughts and emotions. With an intuitive interface, it allows users to write, save, and manage their personal journal entries effortlessly.
 
-## Step 1 run npm install:
+## ✨ Features
 
-```sh
-npm install
-```
-<br/>
+- 📚 **Personal Journal** – Write and save daily thoughts securely.
+- 📝 **Rich Text Editor** – Format entries with markdown support.
+- 🔍 **Search & Filter** – Quickly find past reflections.
+- 🎨 **Minimal UI** – A distraction-free writing experience.
+- ☁️ **Cloud Sync (Upcoming)** – Save entries securely online.
 
-## Step 2:
+## 🛠️ Technologies Used
 
-Please run the following commands in two seperate terminals:
-```sh
-npm run start-express 
-```
-<br/>
+- **Frontend:** React.js, TailwindCSS  
+- **Backend:** Node.js, Express.js  
+- **Database:** MongoDB  
+- **Authentication:** Firebase  
+- **Version Control:** Git, GitHub  
 
-```sh
-npm run dev
-```
+## 🚀 Getting Started
 
-## Step 3:
-Open localhost link in the terminal that you ran "npm run dev" in.
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/zythedeveloper/dear-kokoro.git
+   cd dear-kokoro
+   ```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+3. **Run the app:**
+   ```bash
+   npm start
+   ```
 
-login details
-email:demo@email.com
-password:password
-
-
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-### Run express for Backend
-
-```sh
-npm run start-express
-```
-
+💙 *"Dear Kokoro" – A space for your heart and mind.*
