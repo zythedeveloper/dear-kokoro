@@ -12,9 +12,9 @@ A simple yet heartfelt journaling web application designed to help users reflect
 
 ## 🛠️ Technologies Used
 
-- **Frontend:** React.js, TailwindCSS  
-- **Backend:** Node.js, Express.js  
-- **Database:** MongoDB  
+- **Frontend:** Vue.js, TailwindCSS  
+- **Backend:** Node.js, Express.js
+- **Database:** Firestore  
 - **Authentication:** Firebase  
 - **Version Control:** Git, GitHub  
 
