@@ -1,0 +1,72 @@
+.container{
+    width: 100vw;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.fill-area{
+    width: 100vw;
+    height: 90vh;
+    background: #E7E8ED;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    pointer-events: none;
+    /* box-shadow: 3px 3px 5px -1px; */
+}
+label{
+    font-size: 8rem;
+    position: static;
+    z-index: 1;
+    color: #92afd1;
+    margin: -5rem 0 2rem;
+    font-family: "Monoton"
+}
+
+label::after{
+    content: 'hrs';
+    font-size: 4rem;
+}
+input[type=range]{
+    position: static;
+    z-index: 2;
+    width: 50vw;
+    height: 1rem;
+    background: rgba(214, 224, 236, 1);
+    appearance: none;
+    border: none;
+    outline: #0f0b00;
+    border-radius: 0.5rem;
+    box-shadow: inset 3px 3px 5px -1px #4779b3;
+}
+input[type=range]::-webkit-slider-thumb{
+    width: 4vw;
+    height: 4vw;
+    background: #eee;
+    appearance: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 5px 5px 8px -1px #000;
+    transition: box-shadow 0.3s ease-in-out;
+}
+.slide-text {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 2em;
+    color: #000;
+    z-index: 1;
+    font-family: system-ui, sans-serif;
+    font-weight: 800;
+    color: #98b3d4;
+    margin-top: 1rem;
+}
+
+p {
+    font-family: "Lucida Console", "Courier New", monospace;
+    color: #000; 
+    font-size: 35px;
+}

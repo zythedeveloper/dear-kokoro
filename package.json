@@ -1,0 +1,40 @@
+{
+  "name": "cm2020-101",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start-express": "nodemon server.js"
+  },
+  "dependencies": {
+    "@egjs/vue-grid": "^1.14.2",
+    "@headlessui/vue": "^1.7.14",
+    "@heroicons/vue": "^2.0.18",
+    "algoliasearch": "^4.19.1",
+    "cal-heatmap": "^4.2.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "firebase": "^9.22.2",
+    "flowbite": "^1.6.5",
+    "flowbite-vue": "^0.0.12",
+    "instantsearch.css": "^8.0.0",
+    "openai": "^3.3.0",
+    "pinia": "^2.1.4",
+    "sentiment": "^5.0.2",
+    "vue": "^3.3.2",
+    "vue-instantsearch": "^4.10.8",
+    "vue-router": "^4.2.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.3",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "autoprefixer": "^10.4.14",
+    "nodemon": "^3.0.1",
+    "postcss": "^8.4.24",
+    "tailwindcss": "^3.3.2",
+    "vite": "^4.3.5"
+  }
+}
